@@ -1,0 +1,31 @@
+[Unit]
+Description=Gooding 6 Minecraft Server
+After=network.target
+
+[Service]
+WorkingDirectory=/home/minecraft/gooding6-minecraft/%i
+
+User=minecraft
+Group=minecraft
+
+PrivateUsers=true
+ProtectSystem=full
+ProtectKernelTunables=true
+ProtectKernelModules=true
+ProtectControlGroups=true
+
+Restart=on-failure
+RestartSec=60s
+
+ExecStart=/bin/sh -c '/usr/bin/screen -DmS mc-%i /usr/bin/java -server -Xmx7G -Xms7G -jar paper-1.16.4-312.jar nogui'
+
+ExecReload=/usr/bin/screen -p 0 -S mc-%i -x eval 'stuff "reload"\\015'
+
+ExecStop=/usr/bin/screen -p 0 -s mc-%i -x eval 'stuff "save-all"\\015'
+ExecStop=/usr/bin/screen -p 0 -s mc-%i -x eval 'stuff "save-all"\\015'
+ExecStop=/usr/bin/screen -p 0 -s mc-%i -x eval 'stuff "stop"\\015'
+ExecStop=/bin/sleep 10
+
+[Install]
+WantedBy=multi-user.target
+

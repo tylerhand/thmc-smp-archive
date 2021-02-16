@@ -1,0 +1,134 @@
+features:
+  teleport: true
+  warps: true
+  spawn: false
+  randomTP: true
+  homes: true
+timers:
+  commandCooldown: 5
+  teleportTimer: 3
+  teleportTimers:
+    tpa: default
+    tpahere: default
+    tpr: default
+    warp: default
+    spawn: default
+    home: default
+    back: default
+  requestLifetime: 60
+  cancel-on-rotate: false
+  cancel-on-movement: true
+booleans:
+  useVault: false
+  EXPPayment: false
+sounds:
+  tpa:
+    requestSent: none
+    requestReceived: none
+  tpahere:
+    requestSent: none
+    requestReceived: none
+payments:
+  vault:
+    teleportPrice: 100.0
+    tpa:
+      price: default
+      enabled: default
+    tpahere:
+      price: default
+      enabled: default
+    tpr:
+      price: default
+      enabled: default
+    warp:
+      price: default
+      enabled: default
+    spawn:
+      price: default
+      enabled: default
+    home:
+      price: default
+      enabled: default
+    back:
+      price: default
+      enabled: default
+  exp:
+    teleportPrice: 2
+    tpa:
+      price: default
+      enabled: default
+    tpahere:
+      price: default
+      enabled: default
+    tpr:
+      price: default
+      enabled: default
+    warp:
+      price: default
+      enabled: default
+    spawn:
+      price: default
+      enabled: default
+    home:
+      price: default
+      enabled: default
+    back:
+      price: default
+      enabled: default
+tpr:
+  maximum-x: 10000
+  minimum-x: -10000
+  maximum-z: 10000
+  minimum-z: -10000
+  useWorldBorder: true
+  avoidBlocks:
+  - WATER
+  - LAVA
+  - STATIONARY_WATER
+  - STATIONARY_LAVA
+  blacklist-worlds: []
+distance-limiter:
+  enabled: false
+  distance-limit: 1000
+  monitor-all-teleports: false
+  per-command:
+    tpa: true
+    tpahere: true
+    tpr: false
+    warp: true
+    spawn: true
+    back: true
+    home: true
+teleport-limit:
+  blacklisted-worlds: []
+  enabled: false
+  monitor-all-teleports: false
+  per-command:
+    tpa: true
+    tpahere: true
+    warp: true
+    spawn: true
+    back: true
+    home: true
+  block-to-loc: true
+  block-from-loc: true
+  allow-teleport-within-world: true
+  allow-cross-world-teleporting: true
+back:
+  teleport-causes:
+  - COMMAND
+  - PLUGIN
+  - SPECTATE
+homes:
+  default-limit: -1
+  add-bed-to-homes: true
+spawn:
+  death:
+    teleport:
+      default: spawn
+      world: '{default}'
+      special-world: warp:Special
+      another-world: bed
+  join:
+    teleport-on-first-join: true
+    teleport-on-every-join: false
